@@ -21,9 +21,10 @@ import {
   ColorPicker,
   ColorMapping,
   Editor,
+  Line,
 } from "./pages";
 function App() {
-  const activeMenu = false;
+  const activeMenu = true;
   return (
     <BrowserRouter>
       <div className="flex realtive dark:bg-main-dark-bg">
@@ -60,8 +61,8 @@ function App() {
         <div>
           <Routes>
             {/* Dashboard */}
-            <Route path="/" element={<ECommerce />} />
-            <Route path="/ecommerce" element={<ECommerce />} />
+            <Route path="/" element={<Ecommerce />} />
+            <Route path="/ecommerce" element={<Ecommerce />} />
 
             {/* Pages */}
             <Route path="/orders" element={<Orders />} />
