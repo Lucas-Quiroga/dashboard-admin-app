@@ -7,9 +7,10 @@ import { MdOutlineCancel } from "react-icons/md";
 //tooltip
 import { TooltipComponent } from "@syncfusion/ej2-react-popups"; //The Tooltip component displays a pop-up containing an information or a message when you hover, click, focus, or touch an element. The information displayed in the Tooltip can include simple text, images, hyperlinks, or custom templates. In mobile devices, to display the Tooltip, you need to tap and hold the target elements.
 import { links } from "../data/dummy";
+import { useStateContext } from "../contexts/ContextProvider";
 
 export default function Sidebar() {
-  const activeMenu = true;
+  const { activeMenu, setActiveMenu } = useStateContext();
   const activeLink =
     "flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg text-white text-md m-2";
   const normalLink =
@@ -21,7 +22,7 @@ export default function Sidebar() {
           <div className="flex justify-between items-center">
             <Link
               to="/"
-              onClick={() => {}}
+              onClick={() => setActiveMenu(false)}
               className="items-center gap-3 ml-3 mt-4 flex text-xl font-extrabold tracking-tingt dark:text-white text-slate-900"
             >
               <SiShopware /> <span>Shoppy</span>
@@ -30,7 +31,9 @@ export default function Sidebar() {
             <TooltipComponent content="Menu" position="BottomCenter">
               <button
                 type="button"
-                onClick={() => {}}
+                onClick={() =>
+                  setActiveMenu((prevActiveMenu) => !prevActiveMenu)
+                }
                 className="text-xl rounded-full p-3 hover:bg-light-gray mt-4 block md:hidden"
               >
                 <MdOutlineCancel />
