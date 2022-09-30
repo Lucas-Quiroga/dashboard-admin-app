@@ -25,7 +25,7 @@ import {
 } from "./pages";
 import { useStateContext } from "./contexts/ContextProvider";
 function App() {
-  const { activeMenu } = useStateContext();
+  const { activeMenu, themeSettings, setThemeSettings } = useStateContext();
   return (
     <BrowserRouter>
       <div className="flex realtive dark:bg-main-dark-bg">
@@ -33,7 +33,8 @@ function App() {
           <TooltipComponent content="Settings" position="Top">
             <button
               type="button"
-              className="text-3x1 p-3 hover:drop-shadow-xl hover:bg-light-gray text-white"
+              className="text-3xl p-3 hover:drop-shadow-xl hover:bg-light-gray text-white"
+              onClick={() => setThemeSettings(true)}
               style={{ background: "blue", borderRadius: "50%" }}
             >
               <FiSettings />
@@ -59,6 +60,7 @@ function App() {
           </div>
 
           <div>
+            {themeSettings && <ThemeSettings />}
             <Routes>
               {/* Dashboard */}
               <Route path="/" element={<Ecommerce />} />
