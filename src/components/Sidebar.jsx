@@ -32,7 +32,7 @@ export default function Sidebar() {
               onClick={handleCloseSideBar}
               className="items-center gap-3 ml-3 mt-4 flex text-xl font-extrabold tracking-tingt dark:text-white text-slate-900"
             >
-              <SiShopware /> <span>Shoppy</span>
+              <SiShopware /> <span>Tools Manáger</span>
             </Link>
 
             <TooltipComponent content="Menu" position="BottomCenter">
